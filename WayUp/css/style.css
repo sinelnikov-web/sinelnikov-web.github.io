@@ -272,8 +272,44 @@ body {
 
 }
 
-@media (max-width: 461px) {
-    .button {
+@media (max-width: 575px) {
+    
+    .info_title-sm {
         font-size: 2.5rem;
     }
+
+    .info_title-big {
+        font-size: 8rem;
+    }
+
+    .info_text {
+        font-size: 2rem;
+    }
+
+    .features_title {
+        font-size: 4rem;
+    }
+
+    .feature_title {
+        font-size: 2rem;
+    }
+
+    .button {
+        font-size: 1.3rem;
+        padding: 1.8rem 2.2rem 1.8rem 2.2rem;
+        min-width: auto;
+    }
+
+    .callback_input {
+        font-size: 1.5rem;
+    }
+
+    .copyright {
+        font-size: 1rem;
+    }
+
+    .callback_title {
+        font-size: 3rem;
+    }
 }
+
