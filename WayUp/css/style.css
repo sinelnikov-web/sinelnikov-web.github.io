@@ -271,3 +271,9 @@ body {
     }
 
 }
+
+@media (max-width: 461px) {
+    .button {
+        font-size: 2.5rem;
+    }
+}
