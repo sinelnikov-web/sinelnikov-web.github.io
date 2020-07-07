@@ -1,0 +1,273 @@
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: black;
+    background-color: #FFD429;
+    padding: 1.6rem 2.6rem 2rem 2.8rem;
+    line-height: 1rem;
+    min-width: 22.2rem;
+}
+
+/* Header */
+
+.header {
+    background: linear-gradient(45deg, #4EBEFE, #378FD9);
+    padding-top: 6.6rem;
+}
+
+.info_title {
+    color: white;
+    display: block;
+    margin-top: 13.9rem;
+
+}
+
+.info_title-sm {
+    font-size: 3.7rem;
+    font-weight: 700;
+}
+
+.info_title-big {
+    font-size: 5.9rem;
+    font-weight: 700;
+    margin-bottom: 5.6rem;;
+    margin-top: -2.2rem;
+}
+
+.info_text {
+    color: white;
+    font-size: 1.6rem;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.5;
+    max-width: 40.2rem;
+}
+
+.info_button {
+    margin-top: 3.9rem;
+}
+
+.travel_photo {
+    margin-top: -5rem;
+}
+
+/* Features */
+
+.features {
+    padding: 10rem 0;
+}
+
+.features_title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 6.95rem;
+}
+
+.feature_item {
+    max-width: 28rem;
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+
+.feature_title {
+    font-size: 1.9rem;
+    font-weight: 700;
+}
+
+.feature_text {
+    font-size: 1.5rem;
+}
+
+/* CallBack */
+
+.callback {
+    padding: 10rem 0;
+    background-color: #ECF3F8;
+}
+
+.callback_title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 5.75rem;
+}
+
+.callback_form {
+    max-width: 34.3rem;
+    display: flex;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+}
+
+.callback_input {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding-top: 1.36rem;
+    padding-left: 2.44rem;
+    padding-bottom: 1.74rem;
+    margin-bottom: 1.5rem;
+    line-height: 0;
+    max-height: 4.8rem;
+    max-width: 34.3rem;
+}
+
+/* Footer */
+
+.footer {
+    background-color: #164D7A;
+    padding-top: 5.8rem;
+    padding-bottom: 6.49rem;
+}
+
+.copyright {
+    text-align: center;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+
+@media (max-width: 1199px) {
+
+    /* Header */
+    .info_content {
+        display: flex;
+        flex-direction: column;
+        -ms-align-items: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .info_title-sm {
+        font-size: 5.7rem;
+    }
+
+    .info_title-big {
+        font-size: 9.9rem;
+    }
+
+    .info_text {
+        max-width: 90rem;
+        font-size: 3rem;
+    }
+
+    .button {
+        font-size: 3rem;
+        padding: 3.2rem 5.2rem 4rem 5.6rem;
+    }
+
+    .header_img {
+        text-align: center;
+    }
+
+
+    /* Features */
+    .features {
+        padding: 10rem 0 0;
+    }
+
+    .features_title {
+        font-size: 6rem;
+    }
+
+    .feature_item {
+        margin-bottom: 8rem;
+    }
+
+    .feature_title {
+        font-size: 2.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .feature_text {
+        font-size: 2rem;
+    }
+
+    /* CallBack */
+
+    .callback_title {
+        font-size: 5rem;
+    }
+
+    .callback_form {
+        max-width: 100%;
+    }
+
+    .callback_input {
+        max-width: 100%;
+        font-size: 3rem;
+        max-height: 8.4rem;
+
+    }
+
+    .callback_form .button {
+        max-width: 100%;
+    }
+
+    /* Footer */
+
+    .copyright {
+        font-size: 2rem;
+    }
+
+}
+
+@media (max-width: 991px) {
+
+    /* Header */
+
+    .header {
+        padding-bottom: 10rem;
+    }
+
+    .header_img {
+        display: none;
+    }
+
+    /* Features */
+
+    .features {
+        padding: 10rem 0 0;
+    }
+
+    .features_title {
+        font-size: 6rem;
+    }
+
+    .feature_item {
+        margin-bottom: 8rem;
+    }
+
+    .feature_title {
+        font-size: 2.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .feature_text {
+        font-size: 2rem;
+    }
+
+    /* Footer */
+
+    .copyright {
+        font-size: 2rem;
+    }
+
+}
