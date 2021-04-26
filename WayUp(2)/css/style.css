@@ -208,6 +208,7 @@ p {
 
 .perspectives__list-item {
     font-weight: 700;
+    font-size: 1.5rem;
 }
 
 .perspectives__title {
@@ -297,6 +298,12 @@ p {
     .copyrights {
         font-size: 1.5rem;
     }
+
+    /*  Perspectives  */
+    .perspectives__ordered,
+    .perspectives__unordered {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 767px)  {
@@ -306,6 +313,10 @@ p {
 
     .header {
         padding-bottom: 100px;
+    }
+
+    .perspectives__image {
+        width: 100%;
     }
 }
 
