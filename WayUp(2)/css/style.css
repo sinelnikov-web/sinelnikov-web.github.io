@@ -216,6 +216,10 @@ p {
     text-align: center;
 }
 
+.perspectives__list-unordered .perspectives__list {
+    list-style-type: square;
+}
+
 
 /* media */
 
