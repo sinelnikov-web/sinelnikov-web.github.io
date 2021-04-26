@@ -190,6 +190,33 @@ p {
     color: #fff;
 }
 
+/* Perspectives */
+.perspectives__inner {
+
+}
+
+.perspectives__ordered,
+.perspectives__unordered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.perspectives__image {
+
+}
+
+.perspectives__list-item {
+    font-weight: 700;
+}
+
+.perspectives__title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+
 /* media */
 
 @media (max-width: 1199px) {
