@@ -9,8 +9,14 @@ var calculatorState = {
     currentChar: '',
     currentOperation: '',
     calculate: function (btn) {
+
+        // get element with character
         const btnChar = btn.querySelector('.calculator__character')
+
+        // get btn type
         const charType = btnChar.dataset.type
+
+        // define need actions
         switch (charType) {
             case 'operation': {
                 this.operation(btnChar)
@@ -29,6 +35,7 @@ var calculatorState = {
                 break
             }
         }
+        // some debug code
         console.group('Debug info')
         console.log('currentNumber:', this.currentNumber)
         console.log('prevNumber:', this.prevNumber)
@@ -38,30 +45,46 @@ var calculatorState = {
         console.groupEnd()
     },
     number: function (btnChar) {
-        if (isNaN(parseFloat(this.currentChar)) && this.currentChar !== '.') {
-            this.currentOperation = this.currentChar
-        }
+        // if (isNaN(parseFloat(this.currentChar)) && this.currentChar !== '.') {
+        //     this.currentOperation = this.currentChar
+        // }
+
+        // check if user try to input non float number
         if (this.input.value === '0' && btnChar.innerHTML !== '.') {
             this.input.value = ''
             this.currentNumber = ''
         }
+
+        // set current char
         this.currentChar = btnChar.innerHTML
+
+        // add current char to current number
         this.currentNumber += this.currentChar
+
+        // show current number in Input
         this.input.value = this.currentNumber
     },
     operation: function (btnChar) {
+        // check if we have an operation that hasn't been applied
         if (this.currentOperation) {
             this.applyOperation()
+
+            // set current operation
             this.currentOperation = btnChar.innerHTML
         }
+        // check if we haven't any unapplied operation
         if (!this.currentOperation) {
             this.currentOperation = btnChar.innerHTML
         }
+        // if user want to find square root then show result immediately
         if (btnChar.innerHTML === '√') {
             this.showResult()
         } else {
+            // set current operation
             this.currentChar = btnChar.innerHTML
             this.input.value = this.currentOperation
+
+            // change current number to previous number
             this.prevNumber = this.currentNumber
             this.currentNumber = ''
         }
@@ -82,6 +105,7 @@ var calculatorState = {
                 break
             }
             case '÷': {
+                // check if user want to divide by zero
                 if (+this.currentNumber === 0) {
                     alert('На ноль делить нельзя!')
                     break
@@ -94,10 +118,13 @@ var calculatorState = {
                 break
             }
         }
-        if (!Number.isInteger(+this.currentNumber)) {
-            const currFloat = this.currentNumber.split('.')[1]
-            const curr = this.currentNumber.includes('.') ? currFloat.length : 0
-            this.result = parseInt(currFloat) === 0 ? +this.result.toFixed(0) : +this.result.toFixed(curr)
+        // fix 0.1 + 0.2 problem
+        if (!Number.isInteger(+this.currentNumber) || !Number.isInteger(+this.prevNumber)) {
+            let currFloat = this.currentNumber.split('.')
+            let prevFloat = this.prevNumber.split('.')
+            currFloat = currFloat.length === 2 ? currFloat[1].length : 0
+            prevFloat = prevFloat.length === 2 ? prevFloat[1].length : 0
+            this.result = +this.result.toFixed(Math.max(currFloat, prevFloat))
             if (parseInt(this.result.toString().split('.')[1]) === 0) {
                 this.result = +this.result.toFixed(0)
             }
