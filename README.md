@@ -10,3 +10,5 @@
 [Calculator(Native JS):one::heavy_plus_sign::one:](https://sinelnikov-web.github.io/calculator/ "Провект WayUp")
 
 [Todo List(Native JS) :memo:](https://sinelnikov-web.github.io/todo_list/ "Провект WayUp")
+
+[Snake(Native JS)](https://sinelnikov-web.github.io/snake/ "Провект WayUp")
