@@ -54,8 +54,7 @@ var calculatorState = {
             this.currentNumber = ''
         }
         if (btnChar.innerHTML === '.' && this.input.value.includes('.')) {
-            this.input.value = this.input.value.slice(0, this.input.value.length - 1)
-            this.currentNumber = this.currentNumber.slice(0, this.currentNumber.length - 1)
+            return
         }
 
         // set current char
