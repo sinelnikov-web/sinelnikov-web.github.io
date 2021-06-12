@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="shadow todo">
+    <div class="todo__head">
+        <h2 class="todo__title">Todo List</h2>
+        <div class="todo__head-controls">
+            <input id="task" type="text" class="todo__input form-control" name="task" placeholder="Input your task here...">
+            <button class="btn btn-primary add-task-btn" style="border-radius: 0">Add</button>
+        </div>
+    </div>
+    <div class="shadow todo__body">
+        <ul class="todo__task-list">
+
+        </ul>
+        <span class="scroll-visualizer bg-primary">&darr;</span>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
