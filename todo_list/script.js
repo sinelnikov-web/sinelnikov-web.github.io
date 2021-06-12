@@ -120,6 +120,17 @@ function handleEditEnd(e) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    let todoBody = document.querySelector('.todo__body')
+    todoBody.addEventListener('scroll', (e) => {
+        let scrollVisualizer = document.querySelector('.scroll-visualizer')
+        if (e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight) {
+            scrollVisualizer.classList.remove('active')
+        } else {
+            if (!scrollVisualizer.classList.contains('active')) {
+                scrollVisualizer.classList.add('active')
+            }
+        }
+    })
     // focus input on load
     let taskTextInput = document.querySelector('.todo__input').focus()
     let scrollVisualizer = document.querySelector('.scroll-visualizer')
@@ -129,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
             behavior: 'smooth',
             top: e.target.parentElement.scrollHeight
         })
+        e.target.classList.remove('active')
     })
 
     // check if user have tasks in localStorage
