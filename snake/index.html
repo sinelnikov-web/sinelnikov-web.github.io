@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Snake</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="scoreboard">
+    <h1 class="scoreboard__title">Snake</h1>
+    <span class="scoreboard__score">Score: <span class="score__value">0</span> (target: 10)</span>
+</div>
+<div class="shadow snake">
+
+</div>
+<div class="shadow snake-control-panel">
+    <div class="d-flex justify-content-center align-items-center snake-control-panel__row">
+        <button class="btn btn-primary snake-control">&uArr;</button>
+    </div>
+    <div class="d-flex justify-content-between align-items-center snake-control-panel__row">
+        <button class="btn btn-primary snake-control">&lArr;</button>
+        <button class="btn btn-primary snake-control">&rArr;</button>
+    </div>
+    <div class="d-flex justify-content-center align-items-center snake-control-panel__row">
+        <button class="btn btn-primary snake-control">&dArr;</button>
+    </div>
+</div>
+<div class="message" id="win">
+    <div class="shadow message__body">
+        <h1 class="message__title text-success">You WIN</h1>
+        <button class="message__button btn btn-success">Start new game!</button>
+    </div>
+</div>
+<div class="message" id="lose">
+    <div class="shadow message__body">
+        <h1 class="message__title text-danger">You LOSE :(</h1>
+        <button class="message__button btn btn-success">Start new game!</button>
+    </div>
+</div>
+<div class="message" id="welcome">
+    <div class="shadow message__body">
+        <h1 class="message__title">Do you want to start game?</h1>
+        <button class="message__button btn btn-primary">Start!</button>
+    </div>
+</div>
+<div class="message" id="info">
+    <div class="shadow message__body">
+        <h1 class="message__title">How to play?</h1>
+        <div class="message__text__block">
+            <h3 class="message__text__block__title">With keyboard:</h3>
+            <p class="message__text">
+                (Important) Check your current keyboard language, it must be english!!!
+                You can press "W A S D" buttons on your keyboard
+            </p>
+        </div>
+        <div class="message__text__block">
+            <h3 class="message__text__block__title">Without keyboard:</h3>
+            <p class="message__text">
+                Under game map you can see control panel with 4 blue control buttons.
+                Press them for control your snake!
+            </p>
+        </div>
+        <button class="info-message__button btn btn-primary">Close</button>
+    </div>
+</div>
+<span class="info-btn">?</span>
+<script src="script.js"></script>
+</body>
+</html>
