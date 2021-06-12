@@ -7,4 +7,5 @@
 
 [EKTU test](https://sinelnikov-web.github.io/ektu_test/ "Провект WayUp")
 
-[Tic-Tac-Toe](https://sinelnikov-web.github.io/tic_tac_toe/ "Провект WayUp")
+[Tic-Tac-Toe(Native JS)](https://sinelnikov-web.github.io/tic_tac_toe/ "Провект WayUp")
+[Calculator(Native JS)](https://sinelnikov-web.github.io/calculator/ "Провект WayUp")
