@@ -88,7 +88,7 @@ var calculatorState = {
 
             // change current number to previous number
             this.prevNumber = this.currentNumber
-            this.currentNumber = ''
+            this.currentNumber = '0'
         }
 
     },
@@ -116,20 +116,25 @@ var calculatorState = {
                 break
             }
             case '√': {
+                debugger
                 this.result = Math.sqrt(this.currentNumber)
                 break
             }
         }
         // fix 0.1 + 0.2 problem
-        if (!Number.isInteger(+this.currentNumber) || !Number.isInteger(+this.prevNumber)) {
-            let currFloat = this.currentNumber.split('.')
-            let prevFloat = this.prevNumber.split('.')
-            currFloat = currFloat.length === 2 ? currFloat[1].length : 0
-            prevFloat = prevFloat.length === 2 ? prevFloat[1].length : 0
-            this.result = +this.result.toFixed(Math.max(currFloat, prevFloat))
-            if (parseInt(this.result.toString().split('.')[1]) === 0) {
-                this.result = +this.result.toFixed(0)
+        if (!Number.isInteger(this.result)) {
+            let floatPart = this.result.toString().split('.')[1]
+            if (floatPart.length > 5) {
+                this.result = +this.result.toFixed(5)
             }
+            // let currFloat = this.currentNumber.split('.')
+            // let prevFloat = this.prevNumber.split('.')
+            // currFloat = currFloat.length === 2 ? currFloat[1].length : 0
+            // prevFloat = prevFloat.length === 2 ? prevFloat[1].length : 0
+            // this.result = +this.result.toFixed(Math.max(currFloat, prevFloat))
+            // if (parseInt(this.result.toString().split('.')[1]) === 0) {
+            //     this.result = +this.result.toFixed(0)
+            // }
         }
         this.currentOperation = ''
         this.currentNumber = this.result.toString()
