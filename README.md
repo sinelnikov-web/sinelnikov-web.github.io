@@ -11,4 +11,4 @@
 
 [Todo List(Native JS) :memo:](https://sinelnikov-web.github.io/todo_list/ "Провект WayUp")
 
-[Snake(Native JS)](https://sinelnikov-web.github.io/snake/ "Провект WayUp")
+[Snake(Native JS)🐍](https://sinelnikov-web.github.io/snake/ "Провект WayUp")
