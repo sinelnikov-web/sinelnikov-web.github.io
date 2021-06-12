@@ -1,223 +1,138 @@
-
-
-
-var calculatorState = {
-    input: null,
-    result: 0,
-    currentNumber: '0',
-    prevNumber: '',
-    currentChar: '',
-    currentOperation: '',
-    calculate: function (btn) {
-
-        // get element with character
-        const btnChar = btn.querySelector('.calculator__character')
-
-        // get btn type
-        const charType = btnChar.dataset.type
-
-        // define need actions
-        switch (charType) {
-            case 'operation': {
-                this.operation(btnChar)
-                break
-            }
-            case 'number': {
-                this.number(btnChar)
-                break
-            }
-            case 'result': {
-                this.showResult()
-                break
-            }
-            case 'clear': {
-                this.clear(btnChar)
-                break
-            }
+function ticTacMapAnalyze (gameMap) {
+    // search in rows
+    for (let i = 0; i < gameMap.length; i++) {
+        if (gameMap[i].includes('')) {
+            continue
         }
-        // some debug code
-        console.group('Debug info')
-        console.log('currentNumber:', this.currentNumber)
-        console.log('prevNumber:', this.prevNumber)
-        console.log('currentChar:', this.currentChar)
-        console.log('currentOperation:', this.currentOperation)
-        console.log('result:', this.result)
-        console.groupEnd()
-    },
-    number: function (btnChar) {
-        // if (isNaN(parseFloat(this.currentChar)) && this.currentChar !== '.') {
-        //     this.currentOperation = this.currentChar
-        // }
-        // check if user try to input non float number
-
-        if (this.input.value === '0' && btnChar.innerHTML !== '.') {
-            this.input.value = ''
-            this.currentNumber = ''
+        const rowSet = new Set(gameMap[i])
+        if (rowSet.size === 1) {
+            return Array.from(rowSet)[0]
         }
-        if (btnChar.innerHTML === '.' && this.input.value.includes('.')) {
-            return
-        }
-
-        // set current char
-        this.currentChar = btnChar.innerHTML
-
-        // add current char to current number
-        this.currentNumber = this.currentNumber === '0' ? '' : this.currentNumber
-        this.currentNumber += this.currentChar
-
-        // show current number in Input
-        this.input.value = this.currentNumber
-    },
-    operation: function (btnChar) {
-        // check if we have an operation that hasn't been applied
-        if (this.currentOperation) {
-            this.applyOperation()
-
-            // set current operation
-            this.currentOperation = btnChar.innerHTML
-        }
-        // check if we haven't any unapplied operation
-        if (!this.currentOperation) {
-            this.currentOperation = btnChar.innerHTML
-        }
-        // if user want to find square root then show result immediately
-        if (btnChar.innerHTML === '√') {
-            this.showResult()
-        } else {
-            // set current operation
-            this.currentChar = btnChar.innerHTML
-            this.input.value = this.currentOperation
-
-            // change current number to previous number
-            this.prevNumber = this.currentNumber
-            this.currentNumber = '0'
-        }
-
-    },
-    applyOperation: function () {
-        switch (this.currentOperation) {
-            case '+': {
-                this.result = +this.prevNumber + +this.currentNumber
-                break
-            }
-            case '-': {
-                this.result = +this.prevNumber - +this.currentNumber
-                break
-            }
-            case '*': {
-                this.result = +this.prevNumber * +this.currentNumber
-                break
-            }
-            case '÷': {
-                // check if user want to divide by zero
-                if (+this.currentNumber === 0) {
-                    alert('На ноль делить нельзя!')
-                    break
-                }
-                this.result = +this.prevNumber / +this.currentNumber
-                break
-            }
-            case '√': {
-                this.result = Math.sqrt(this.currentNumber)
-                break
-            }
-        }
-        // fix 0.1 + 0.2 problem
-        if (!Number.isInteger(this.result)) {
-            let floatPart = this.result.toString().split('.')[1]
-            if (floatPart.length > 5) {
-                this.result = +this.result.toFixed(5)
-            }
-            // let currFloat = this.currentNumber.split('.')
-            // let prevFloat = this.prevNumber.split('.')
-            // currFloat = currFloat.length === 2 ? currFloat[1].length : 0
-            // prevFloat = prevFloat.length === 2 ? prevFloat[1].length : 0
-            // this.result = +this.result.toFixed(Math.max(currFloat, prevFloat))
-            // if (parseInt(this.result.toString().split('.')[1]) === 0) {
-            //     this.result = +this.result.toFixed(0)
-            // }
-        }
-        this.currentOperation = ''
-        this.currentNumber = this.result.toString()
-        this.prevNumber = ''
-    },
-    showResult: function () {
-        this.applyOperation()
-        this.input.value = this.result
-    },
-    clear: function (btnChar) {
-        switch (btnChar.innerHTML) {
-            case 'CE': {
-                this.clearChar()
-                break
-            }
-            case 'C': {
-                this.clearInput()
-                break
-            }
-            case 'CA': {
-                this.clearCalculator()
-                break
-            }
-        }
-    },
-    clearChar: function () {
-        const newValue = this.input.value.slice(0, this.input.value.length - 1)
-        this.input.value = newValue === '' ? '0' : newValue
-        this.currentNumber = this.input.value
-    },
-    clearInput: function () {
-        this.input.value = ''
-        this.currentNumber = this.input.value
-    },
-    clearCalculator: function () {
-        this.result = 0
-        this.currentNumber = ''
-        this.prevNumber = ''
-        this.currentChar = ''
-        this.currentOperation = ''
-        this.input.value = ''
     }
+    // search in cols
+    for (let i = 0; i < gameMap.length; i++) {
+        const col = [gameMap[0][i], gameMap[1][i], gameMap[2][i]]
+        if (col.includes('')) {
+            continue
+        }
+        const colSet = new Set(col)
+        if (colSet.size === 1) {
+            return Array.from(colSet)[0]
+        }
+    }
+    //search in diagonals
+    let mainDiagonal = []
+    let sideDiagonal = []
+    for (let i = 0; i < gameMap.length; i++) {
+        for (let j = 0; j < gameMap[i].length; j++) {
+            if (i === j) {
+                mainDiagonal.push(gameMap[i][j])
+            }
+            if (i + j === gameMap[i].length - 1) {
+                sideDiagonal.push(gameMap[i][j])
+            }
+        }
+    }
+    if (!mainDiagonal.includes('')) {
+        let mainDiagonalSet = new Set(mainDiagonal)
+        if (mainDiagonalSet.size === 1) {
+            return Array.from(mainDiagonalSet)[0]
+        }
+    }
+    if (!sideDiagonal.includes('')) {
+        let sideDiagonalSet = new Set(sideDiagonal)
+        if (sideDiagonalSet.size === 1) {
+            return Array.from(sideDiagonalSet)[0]
+        }
+    }
+    // check draw
+    let fullRows = 0
+    for (let i = 0; i < gameMap.length; i++) {
+        if (!gameMap[i].includes('')) {
+            fullRows++
+        }
+    }
+    if (fullRows === 3) {
+        return 'draw'
+    }
+    return false
 }
 
-var keyMap = {
-    'Backspace': 'CE',
-    'Enter': '=',
-    '=': '=',
-    '+': '+',
-    '-': '-',
-    '*': '*',
-    '/': '÷',
-    '.': '.',
-    '0': '0',
-    '1': '1',
-    '2': '2',
-    '3': '3',
-    '4': '4',
-    '5': '5',
-    '6': '6',
-    '7': '7',
-    '8': '8',
-    '9': '9',
+function clearMap () {
+    let gameFields = document.querySelectorAll(".tic-tac-toe__field")
+    gameFields.forEach(field => {
+        const shapeElement = field.querySelector(".shape")
+        shapeElement.classList.remove(gameShapes[field.dataset.user])
+        const userColor = field.dataset.user === 'x' ? 'bg-primary' : 'bg-danger'
+        field.classList.remove('bg-gradient', userColor)
+        field.dataset.user = ''
+        currentUser = 'x'
+    })
+}
+
+function updateScore(user) {
+    gameScore[user]++
+    let userScoreBoard = document.querySelector(`.${user}-user-score`)
+    userScoreBoard.innerHTML = gameScore[user]
+}
+
+var currentUser = 'x'
+
+var gameShapes = {
+    x: 'cross',
+    o: 'circle'
+}
+
+var gameScore = {
+    x: 0,
+    o: 0
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    let calcBtns = document.querySelectorAll('.calculator__button')
-    calculatorState.input = document.querySelector('.calculator__input')
-    document.addEventListener('keydown', event => {
-        if ((event.key).match(/[0-9\/.*\-+=]|Backspace|Enter/)) {
-            let calcBtns = document.querySelectorAll('.calculator__button')
-            calcBtns.forEach(btn => {
-                let btnChar = btn.querySelector('.calculator__character')
-                if (btnChar.innerHTML === keyMap[event.key]) {
-                    calculatorState.calculate(btn)
-                }
+    let gameFields = document.querySelectorAll(".tic-tac-toe__field")
+    gameFields.forEach((field) => {
+        field.addEventListener('click', (e) => {
+            if (e.target.dataset.user) {
+                return
+            }
+            e.target.dataset.user = currentUser
+            const userColor = currentUser === 'x' ? 'bg-primary' : 'bg-danger'
+            e.target.classList.add(userColor, 'bg-gradient')
+            const shapeElement = e.target.querySelector(".shape")
+            shapeElement.dataset.user = currentUser
+            shapeElement.classList.add(gameShapes[currentUser])
+            currentUser = currentUser === 'x' ? 'o' : 'x'
+            // console.log(e.target.dataset)
+            let gameFields = document.querySelectorAll(".tic-tac-toe__field")
+            let gameMap = [[], [], []]
+            gameFields.forEach(field => {
+                gameMap[field.dataset.row].push(field.dataset.user)
             })
-        }
-    })
-    calcBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            calculatorState.calculate(btn)
+            const result = ticTacMapAnalyze(gameMap)
+            console.log(result)
+            if (result) {
+                switch (result) {
+                    case 'x': {
+                        alert('Победили крестики!!!')
+                        updateScore(result)
+                        clearMap()
+                        break
+                    }
+                    case 'o': {
+                        alert('Победили нолики!!!')
+                        updateScore(result)
+                        clearMap()
+                        break
+                    }
+                    case 'draw': {
+                        alert('Ничья')
+                        clearMap()
+                        break
+                    }
+                }
+            }
         })
     })
+
 })
+

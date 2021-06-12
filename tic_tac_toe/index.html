@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -8,39 +8,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-
-<div class="page-title-block">
-    <h1 class="page-title">
-        Калькулятор
-    </h1>
+<div class="shadow scoreboard">
+    <h1 class="scoreboard__title">Счёт</h1>
+    <div class="user-panel">
+        <div class="shadow user-info bg-primary bg-gradient">
+            <span class="x-user-score">0</span>
+        </div>
+        <div class="shadow user-info bg-danger bg-gradient">
+            <span class="o-user-score">0</span>
+        </div>
+    </div>
 </div>
-
-<div class="shadow calculator">
-    <div class="shadow calculator__head">
-        <input type="text" value="0" class="calculator__input" readonly>
-    </div>
-    <div class="shadow calculator__body">
-        <div class="shadow calculator__button"><span class="calculator__character" data-type="clear">C</span></div>
-        <div class="shadow calculator__button"><span class="calculator__character" data-type="clear">CA</span></div>
-        <div class="shadow calculator__button"><span class="calculator__character" data-type="operation">&radic;</span></div>
-        <div class="shadow calculator__button"><span class="calculator__character" data-type="clear">CE</span></div>
-        <div class="shadow calculator__button"><span class="calculator__character" data-type="number">7</span></div>
-        <div class="shadow calculator__button"><span class="calculator__character" data-type="number">8</span></div>
-        <div class="shadow calculator__button"><span class="calculator__character" data-type="number">9</span></div>
-        <div class="shadow calculator__button"><span class="calculator__character" data-type="operation">+</span></div>
-        <div class="shadow calculator__button"><span class="calculator__character" data-type="number">4</span></div>
-        <div class="shadow calculator__button"><span class="calculator__character" data-type="number">5</span></div>
-        <div class="shadow calculator__button"><span class="calculator__character" data-type="number">6</span></div>
-        <div class="shadow calculator__button"><span class="calculator__character" data-type="operation">&divide;</span></div>
-        <div class="shadow calculator__button"><span class="calculator__character" data-type="number">1</span></div>
-        <div class="shadow calculator__button"><span class="calculator__character" data-type="number">2</span></div>
-        <div class="shadow calculator__button"><span class="calculator__character" data-type="number">3</span></div>
-        <div class="shadow calculator__button"><span class="calculator__character" data-type="operation">*</span></div>
-        <div class="shadow calculator__button"><span class="calculator__character" data-type="number">0</span></div>
-        <div class="shadow calculator__button"><span class="calculator__character" data-type="number">.</span></div>
-        <div class="shadow calculator__button"><span class="calculator__character" data-type="operation">-</span></div>
-        <div class="shadow calculator__button"><span class="calculator__character" data-type="result">=</span></div>
-    </div>
+<div class="shadow tic-tac-toe">
+    <div class="shadow tic-tac-toe__field" data-column="0" data-row="0" data-user=""><span class="shape" data-user=""></span></div>
+    <div class="shadow tic-tac-toe__field" data-column="1" data-row="0" data-user=""><span class="shape" data-user=""></span></div>
+    <div class="shadow tic-tac-toe__field" data-column="2" data-row="0" data-user=""><span class="shape" data-user=""></span></div>
+    <div class="shadow tic-tac-toe__field" data-column="0" data-row="1" data-user=""><span class="shape" data-user=""></span></div>
+    <div class="shadow tic-tac-toe__field" data-column="1" data-row="1" data-user=""><span class="shape" data-user=""></span></div>
+    <div class="shadow tic-tac-toe__field" data-column="2" data-row="1" data-user=""><span class="shape" data-user=""></span></div>
+    <div class="shadow tic-tac-toe__field" data-column="0" data-row="2" data-user=""><span class="shape" data-user=""></span></div>
+    <div class="shadow tic-tac-toe__field" data-column="1" data-row="2" data-user=""><span class="shape" data-user=""></span></div>
+    <div class="shadow tic-tac-toe__field" data-column="2" data-row="2" data-user=""><span class="shape" data-user=""></span></div>
 </div>
 <script src="script.js"></script>
 </body>
