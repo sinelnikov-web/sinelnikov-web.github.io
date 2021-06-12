@@ -49,6 +49,7 @@ var calculatorState = {
         //     this.currentOperation = this.currentChar
         // }
         // check if user try to input non float number
+
         if (this.input.value === '0' && btnChar.innerHTML !== '.') {
             this.input.value = ''
             this.currentNumber = ''
@@ -61,6 +62,7 @@ var calculatorState = {
         this.currentChar = btnChar.innerHTML
 
         // add current char to current number
+        this.currentNumber = this.currentNumber === '0' ? '' : this.currentNumber
         this.currentNumber += this.currentChar
 
         // show current number in Input
@@ -116,7 +118,6 @@ var calculatorState = {
                 break
             }
             case '√': {
-                debugger
                 this.result = Math.sqrt(this.currentNumber)
                 break
             }
