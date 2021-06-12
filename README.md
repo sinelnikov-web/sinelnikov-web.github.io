@@ -8,3 +8,5 @@
 [Tic-Tac-Toe(Native JS)](https://sinelnikov-web.github.io/tic_tac_toe/ "Провект WayUp")
 
 [Calculator(Native JS)](https://sinelnikov-web.github.io/calculator/ "Провект WayUp")
+
+[Todo List(Native JS)](https://sinelnikov-web.github.io/todo_list/ "Провект WayUp")
