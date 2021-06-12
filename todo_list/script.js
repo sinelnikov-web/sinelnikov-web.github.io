@@ -1,7 +1,7 @@
 
 function checkBody() {
     let todoBody = document.querySelector('.todo__body')
-    if (todoBody.scrollHeight > todoBody.clientHeight) {
+    if (todoBody.scrollHeight - todoBody.scrollTop > todoBody.clientHeight) {
         let scrollVisualizer = todoBody.querySelector('.scroll-visualizer')
         scrollVisualizer.classList.add('active')
     } else {
