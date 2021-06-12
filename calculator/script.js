@@ -4,7 +4,7 @@
 var calculatorState = {
     input: null,
     result: 0,
-    currentNumber: '',
+    currentNumber: '0',
     prevNumber: '',
     currentChar: '',
     currentOperation: '',
@@ -48,11 +48,14 @@ var calculatorState = {
         // if (isNaN(parseFloat(this.currentChar)) && this.currentChar !== '.') {
         //     this.currentOperation = this.currentChar
         // }
-
         // check if user try to input non float number
         if (this.input.value === '0' && btnChar.innerHTML !== '.') {
             this.input.value = ''
             this.currentNumber = ''
+        }
+        if (btnChar.innerHTML === '.' && this.input.value.includes('.')) {
+            this.input.value = this.input.value.slice(0, this.input.value.length - 1)
+            this.currentNumber = this.currentNumber.slice(0, this.currentNumber.length - 1)
         }
 
         // set current char
