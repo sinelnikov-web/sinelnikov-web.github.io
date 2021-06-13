@@ -10,8 +10,30 @@
 </head>
 <body>
 <div class="scoreboard">
-    <h1 class="scoreboard__title">Snake</h1>
-    <span class="scoreboard__score">Score: <span class="score__value">0</span> (target: 10)</span>
+    <div class="d-flex align-items-center justify-content-center flex-column fruit-count-block">
+        <div class="settings-block__title">
+            <span>Fruit limit</span>
+        </div>
+        <div class="d-flex align-items-center justify-content-center settings-block__controls">
+            <button class="btn btn-primary rounded-circle fruit-control-btn" data-control="+">+</button>
+            <input type="text" class="current-fruit-limit form-control w-25 text-center" readonly>
+            <button class="btn btn-primary rounded-circle fruit-control-btn" data-control="-">-</button>
+        </div>
+    </div>
+    <div class="game-info">
+        <h1 class="scoreboard__title">Snake</h1>
+        <span class="scoreboard__score">Score: <span class="score__value">0</span> (target: 40)</span>
+    </div>
+    <div class="d-flex align-items-center justify-content-center flex-column snake-speed-block">
+        <div class="settings-block__title">
+            <span>Speed</span>
+        </div>
+        <div class="d-flex align-items-center justify-content-center settings-block__controls">
+            <button class="btn btn-primary rounded-circle speed-control-btn" data-control="+">+</button>
+            <input type="text" class="current-speed form-control w-25 text-center" readonly>
+            <button class="btn btn-primary rounded-circle speed-control-btn" data-control="-">-</button>
+        </div>
+    </div>
 </div>
 <div class="shadow snake">
 
@@ -52,8 +74,7 @@
         <div class="message__text__block">
             <h3 class="message__text__block__title">With keyboard:</h3>
             <p class="message__text">
-                (Important) Check your current keyboard language, it must be english!!!
-                You can press "W A S D" buttons on your keyboard
+                You can press "W A S D" buttons on your keyboard or use arrows
             </p>
         </div>
         <div class="message__text__block">

@@ -37,8 +37,8 @@ dd {
     height: 100%;
     margin: 20px auto 10px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     background-color: white;
 }
@@ -65,7 +65,7 @@ dd {
     background-color: green;
 }
 
-.snail {
+.tail {
     background-color: greenyellow;
 }
 
@@ -134,7 +134,7 @@ dd {
     cursor: pointer;
     text-align: center;
     position: fixed;
-    top: 4%;
+    bottom: 4%;
     left: 15%;
     font-size: 1.5rem;
     color: white;
