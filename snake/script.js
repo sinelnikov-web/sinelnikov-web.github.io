@@ -41,6 +41,22 @@ var game = {
             scoreValue.innerHTML = this.score
         }
     },
+    generateFruit: function () {
+        let validFruit = false
+        while (!validFruit) {
+            let fruitPos = [Math.floor(Math.random()*25), Math.floor(Math.random()*25)]
+            if (snake.x !== fruitPos[0] && snake.y !== fruitPos[1]) {
+                let inTail = false
+                snake.tail.forEach(tailPart => tailPart[0] === fruitPos[0] && tailPart[1] === fruitPos[1] ? inTail = true : false)
+                if (!inTail) {
+                    this.fruits.push(fruitPos)
+                    validFruit = true
+                }
+            }
+        }
+
+
+    },
     restartGame: function () {
         this.gameStart = false
         this.win = false
@@ -51,8 +67,9 @@ var game = {
         snake.direction = 'UP'
         snake.prevPos = []
         snake.tail = [[12, 13], [12, 14], [12, 15]]
-        if (this.fruits.length < this.fruitsOnMap) {
-            game.fruits.push([Math.floor(Math.random() * 25), Math.floor(Math.random() * 25)])
+        this.fruits = []
+        while (this.fruits.length < this.fruitsOnMap) {
+            this.generateFruit()
         }
         this.reDrawMap()
     },
@@ -64,12 +81,15 @@ var game = {
             let {x: fieldX, y: fieldY} = gameField.dataset
             if (+fieldX === snake.x && +fieldY === snake.y) {
                 gameField.classList.add('snake-head')
-            } else if (+fieldX === this.fruits[0][0] && +fieldY === this.fruits[0][1]) {
-                gameField.classList.add('fruit')
             } else {
                 snake.tail.forEach(tailPart => {
                     if (tailPart[0] === +fieldX && tailPart[1] === +fieldY) {
                         gameField.classList.add('tail')
+                    }
+                })
+                this.fruits.forEach(fruit => {
+                    if (fruit[0] === +fieldX && fruit[1] === +fieldY) {
+                        gameField.classList.add('fruit')
                     }
                 })
             }
@@ -193,7 +213,7 @@ async function run() {
 
 function draw(gameMap) {
     if (game.fruits.length < game.fruitsOnMap) {
-        game.fruits.push([Math.floor(Math.random() * 25), Math.floor(Math.random() * 25)])
+        game.generateFruit()
         game.fruits.forEach(fruit => {
             let fruitPos = gameMap.querySelector(`[data-x="${fruit[0]}"][data-y="${fruit[1]}"]`)
             fruitPos.classList.add('fruit')
