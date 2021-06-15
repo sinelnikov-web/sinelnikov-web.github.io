@@ -88,13 +88,27 @@ dd {
     justify-content: space-between;
     margin-top: 20px;
     padding: 10px;
-    align-items: center;
+    align-items: flex-start;
+}
+
+.todo__task-info {
+    max-width: 120px;
+    white-space: break-spaces;
 }
 
 .todo__task-text {
     cursor: pointer;
     font-size: 1.2rem;
     margin: 0;
+}
+
+.todo__task-edit {
+    height: 100%;
+    resize: none;
+}
+
+.todo__task-controls {
+    display: flex;
 }
 
 .todo__task-controls__btn {

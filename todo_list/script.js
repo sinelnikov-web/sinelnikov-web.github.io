@@ -35,11 +35,11 @@ function addTask() {
 
         // add events
         const completeButton = newTaskElement.querySelector('.todo__task-complete')
-        completeButton.addEventListener('click', (e) => completeTask(e))
+        completeButton.addEventListener('click', completeTask)
         const deleteButton = newTaskElement.querySelector('.todo__task-delete')
-        deleteButton.addEventListener('click', (e) => deleteTask(e))
+        deleteButton.addEventListener('click', deleteTask)
         const editButton = newTaskElement.querySelector('.todo__task-text')
-        editButton.addEventListener('click', (e) => editTask(e))
+        editButton.addEventListener('click', editTask)
         taskList.appendChild(newTaskElement.body.lastChild)
 
         // update task list in localStorage
@@ -79,20 +79,23 @@ function deleteTask(e) {
     checkBody()
 }
 
+function editTaskAutoFocus(e) {
+    e.target.selectionStart = e.target.selectionEnd = e.target.value.length
+}
+
 function editTask(e) {
     // get current task
     let taskElement = e.target.parentElement.parentElement
     let taskTextElement = taskElement.querySelector('.todo__task-text')
     let infoBlock = taskElement.querySelector('.todo__task-info')
     let taskText = taskTextElement.textContent
-    infoBlock.lastChild.removeEventListener('click', () => {})
+    let textHeight = infoBlock.lastChild.clientHeight
+    infoBlock.lastChild.removeEventListener('click', editTask)
     // change paragraph to edit input
-    infoBlock.innerHTML = `<input class="todo__task-edit" type="text" value="${taskText.trim()}">`
-    infoBlock.lastChild.addEventListener('focus', (e) => {
-        e.target.selectionStart = e.target.selectionEnd = e.target.value.length
-    })
+    infoBlock.innerHTML = `<textarea class="todo__task-edit" style="height: ${textHeight}px">${taskText.trim()}</textarea>`
+    infoBlock.lastChild.addEventListener('focus', editTaskAutoFocus)
     infoBlock.lastChild.focus()
-    infoBlock.lastChild.addEventListener('blur', (e) => handleEditEnd(e))
+    infoBlock.lastChild.addEventListener('blur', handleEditEnd)
 
     // check body if need to show scroll button
     checkBody()
@@ -106,7 +109,8 @@ function handleEditEnd(e) {
     // get new value
     let taskText = infoBlock.lastChild.value
     // remove listener from edit input
-    infoBlock.lastChild.removeEventListener('blur', () => {})
+    infoBlock.lastChild.removeEventListener('blur', handleEditEnd)
+    infoBlock.lastChild.removeEventListener('focus', editTaskAutoFocus)
     // change edit input to paragraph with new text
     infoBlock.innerHTML = `<p class="todo__task-text">${taskText}</p>`
     infoBlock.lastChild.addEventListener('click', (e) => editTask(e))
@@ -181,3 +185,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let addTaskButton = document.querySelector('.add-task-btn')
     addTaskButton.addEventListener('click', addTask)
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
