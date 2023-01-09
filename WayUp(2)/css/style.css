@@ -20,7 +20,12 @@ body {
     margin: 0 auto;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     padding: 0;
     margin: 0;
 }
@@ -68,7 +73,7 @@ p {
     max-width: 558px;
 }
 
-.header__info-title--sm{
+.header__info-title--sm {
     color: #fff;
     line-height: 1.32em;
     font-size: 37px;
@@ -94,8 +99,7 @@ p {
     margin-bottom: 40px;
 }
 
-.header__photo {
-}
+.header__photo {}
 
 /* Targets */
 
@@ -118,7 +122,7 @@ p {
 }
 
 .targets__item {
-   text-align: center;
+    text-align: center;
 }
 
 .targets__item-photo {
@@ -203,9 +207,7 @@ p {
 }
 
 /* Perspectives */
-.perspectives__inner {
-
-}
+.perspectives__inner {}
 
 .perspectives__ordered,
 .perspectives__unordered {
@@ -214,9 +216,7 @@ p {
     justify-content: center;
 }
 
-.perspectives__image {
-
-}
+.perspectives__image {}
 
 .perspectives__list-item {
     font-weight: 700;
@@ -231,6 +231,32 @@ p {
 
 .perspectives__list-unordered .perspectives__list {
     list-style-type: square;
+}
+
+.calendar {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 5px;
+    background: #E1E3E0;
+    border-radius: 20px;
+}
+
+.calendar__heading {
+    font-size: 22px;
+    font-weight: 300;
+    padding: 12px 10px;
+    border-bottom: 2px solid #F56433;
+    color: #F56433;
+}
+
+.calendar__row:nth-child(2) {
+    border-bottom: 2px solid #F56433;
+}
+
+.calendar__cell {
+    padding: 10px;
+    color: #8D8173;
 }
 
 
@@ -318,7 +344,7 @@ p {
     }
 }
 
-@media (max-width: 767px)  {
+@media (max-width: 767px) {
     .header__photo {
         display: none;
     }
