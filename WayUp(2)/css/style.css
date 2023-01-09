@@ -188,6 +188,18 @@ p {
 .copyrights {
     text-align: center;
     color: #fff;
+    margin-bottom: 10px;
+}
+
+.other-links {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    padding: 15px;
+}
+
+.other-links a {
+    color: #fff;
 }
 
 /* Perspectives */
