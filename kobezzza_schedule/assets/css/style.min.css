@@ -110,6 +110,7 @@
   background: #ff5d2a;
 }
 .card--final {
+  grid-column: span 2;
   background: #41A120;
 }
 .card--final .card__date {
@@ -117,6 +118,11 @@
 }
 .card--final:hover {
   background: #45ac22;
+}
+@media (max-width: 550px) {
+  .card--final {
+    grid-column: span 1;
+  }
 }
 @media (max-width: 386px) {
   .card {
@@ -327,7 +333,7 @@
     margin-bottom: 12px;
   }
 }
-@media (min-width: 2160px) {
+@media (min-width: 1200px) {
   .drawer {
     top: 50%;
     left: 50%;
@@ -427,6 +433,7 @@
   gap: 17px;
   border: none;
   border-radius: 8px;
+  align-items: center;
   transition: box-shadow 0.2s linear;
 }
 .lecture__play:hover {
@@ -435,6 +442,7 @@
 @media (max-width: 600px) {
   .lecture__title {
     font-size: 16px;
+    line-height: 19.92px;
   }
   .lecture__subtitle {
     font-size: 12px;
@@ -465,7 +473,7 @@
   font-size: 16px;
   color: #717171;
 }
-.result__text {
+.result__text a {
   color: #FFFFFF;
   font-weight: 400;
   font-size: 20px;
